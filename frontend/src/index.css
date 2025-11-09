@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+/* Убрать фокус-outline для всех input'ов */
+input:focus,
+input:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Гладкий border вместо highlight */
+.heroui-input input:focus {
+  border-bottom-color: #000000 !important;
+  box-shadow: 0 1px 0 0 #000000 !important;
+}

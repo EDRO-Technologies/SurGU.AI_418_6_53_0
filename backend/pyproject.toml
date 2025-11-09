@@ -1,0 +1,188 @@
+[project]
+name = "backend"
+version = "0.1.0"
+description = ""
+readme = "README.md"
+requires-python = ">=3.13"
+
+dependencies = [
+    "fastapi[standard]>=0.118.2",
+    "gunicorn>=23.0.0",
+    "uvicorn[standard]>=0.37.0",
+]
+
+[dependency-groups]
+dev = [
+    "aiogram>=3.22.0",
+    "alembic>=1.17.1",
+    "apscheduler>=3.11.1",
+    "asyncpg>=0.30.0",
+    "bcrypt>=5.0.0",
+    "dishka>=1.7.2",
+    "fastapi>=0.115.0",
+    "uvicorn>=0.34.0",
+    "pydantic>=2.10.0",
+    "pydantic-settings>=2.7.0",
+    "python-multipart>=0.0.20",
+    "aiofiles>=24.1.0",
+    "langchain-core>=0.3.0",
+    "langchain-community>=0.4.1",
+    "langchain-openai>=1.0.2",
+    "langchain-chroma>=1.0.0",
+    "langchain-text-splitters>=0.3.0",
+    "openai>=2.7.1",
+    "pypdf>=6.1.3",
+    "pyjwt[crypto]>=2.10.1",
+    "redis>=7.0.1",
+    "sqlalchemy>=2.0.44",
+    "pre-commit>=4.3.0",
+    "pyright>=1.1.406",
+    "ruff>=0.14.0",
+]
+
+test = [
+    "pytest>=8.4.2",
+    "pytest-asyncio>=1.2.0",
+    "httpx>=0.28.0",
+]
+
+[tool.ruff]
+line-length = 80
+target-version = "py313"
+src = ["src"]
+exclude = [
+    ".git",
+    ".venv",
+    "__pycache__",
+    "*.pyc",
+    ".pytest_cache",
+    ".mypy_cache",
+    ".ruff_cache",
+    "build",
+    "dist",
+]
+
+[tool.ruff.lint]
+select = [
+    "E",
+    "W",
+    "F",
+    "I",
+    "N",
+    "UP",
+    "B",
+    "C4",
+    "DTZ",
+    "T10",
+    "EM",
+    "ISC",
+    "ICN",
+    "G",
+    "PIE",
+    "T20",
+    "PT",
+    "Q",
+    "RSE",
+    "RET",
+    "SIM",
+    "TID",
+    "TCH",
+    "ARG",
+    "PTH",
+    "PL",
+    "TRY",
+    "RUF",
+]
+
+ignore = [
+    "PLR0913",
+    "PLR2004",
+    "TRY003",
+    "EM101",
+    "EM102",
+    "G004",
+    "RET505",
+    "SIM108",
+]
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["F401"]
+"tests/**/*.py" = ["ARG", "S101", "PLR2004"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["app"]
+combine-as-imports = true
+
+[tool.ruff.lint.mccabe]
+max-complexity = 10
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+
+[tool.pyright]
+include = ["src"]
+exclude = [
+    "**/__pycache__",
+    "**/.venv",
+    "**/node_modules",
+    "build",
+    "dist",
+]
+
+
+pythonVersion = "3.13"
+pythonPlatform = "Linux"
+typeCheckingMode = "strict"
+
+strictListInference = true
+strictDictionaryInference = true
+strictSetInference = true
+strictParameterNoneValue = true
+
+reportMissingImports = "error"
+reportMissingTypeStubs = "warning"
+reportUnusedImport = "warning"
+reportUnusedClass = "warning"
+reportUnusedFunction = "warning"
+reportUnusedVariable = "warning"
+reportDuplicateImport = "error"
+reportOptionalSubscript = "error"
+reportOptionalMemberAccess = "error"
+reportOptionalCall = "error"
+reportOptionalIterable = "error"
+reportOptionalContextManager = "error"
+reportOptionalOperand = "error"
+reportUntypedFunctionDecorator = "warning"
+reportUntypedClassDecorator = "warning"
+reportUntypedBaseClass = "error"
+reportUnnecessaryIsInstance = "warning"
+reportUnnecessaryCast = "warning"
+reportConstantRedefinition = "error"
+reportDeprecated = "warning"
+reportIncompatibleMethodOverride = "error"
+reportIncompatibleVariableOverride = "error"
+reportInconsistentConstructor = "error"
+reportUnknownParameterType = "warning"
+reportUnknownArgumentType = "warning"
+reportUnknownLambdaType = "warning"
+reportUnknownVariableType = "warning"
+reportUnknownMemberType = "warning"
+reportMissingParameterType = "warning"
+reportMissingTypeArgument = "warning"
+reportInvalidTypeVarUse = "error"
+reportCallInDefaultInitializer = "warning"
+reportUnnecessaryComparison = "warning"
+reportSelfClsParameterName = "error"
+reportImplicitStringConcatenation = "warning"
+reportUndefinedVariable = "error"
+reportUnboundVariable = "error"
+reportInvalidStubStatement = "error"
+reportIncompleteStub = "warning"
+reportUnsupportedDunderAll = "error"
+reportUnusedCoroutine = "error"
